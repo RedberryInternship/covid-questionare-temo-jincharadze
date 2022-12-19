@@ -1,10 +1,19 @@
 @font-face {
   font-family: BPG;
-  src: url("./assets/fonts/BPG_Arial.woff2");
+  src: url('./assets/fonts/BPG_Arial.woff2');
 }
 
 body {
   font-family: BPG;
+}
+
+.all-small-caps {
+  font-variant-caps: all-small-caps;
+}
+
+.text-shadow:hover {
+  text-shadow: 2px 1px 0px rgb(255 255 255), 3px 1px 0px rgb(0 0 0),
+    3px 2px 0px rgb(0 0 0);
 }
 
 @tailwind base;
