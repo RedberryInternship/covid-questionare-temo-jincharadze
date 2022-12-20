@@ -3,12 +3,17 @@ import Input from '@/components/form/input/Input';
 import pageOneImg from '@/assets/images/page-one.png';
 import { useContext, useEffect } from 'react';
 import { FormDataContext } from '@/store/context';
+import { ErrorMessage } from '@hookform/error-message';
 
 const PageOne = () => {
   const getItems = JSON.parse(localStorage.getItem('items'));
 
   const { setFormData } = useContext(FormDataContext);
-  const { register, getValues } = useForm({
+  const {
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm({
     mode: 'onChange',
     defaultValues: getItems,
   });
@@ -44,11 +49,26 @@ const PageOne = () => {
           label='სახელი*'
           register={register('first_name', {
             onChange: handleChange,
-            required: true,
-            minLength: 2,
-            maxLength: 255,
-            pattern: /^[ა-ჰ]+$/,
+            required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
+            minLength: {
+              value: 2,
+              message: 'სახელის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+            },
+            maxLength: {
+              value: 255,
+              message: 'სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან',
+            },
+            pattern: {
+              value: /^[ა-ჰ]+$/,
+              message: 'სახელის ველი უნდა შეიცავდეს მხოლოდ ანბანის ასოებს',
+            },
           })}
+        />
+
+        <ErrorMessage
+          name='first_name'
+          errors={errors}
+          render={({ message }) => <p>{message}</p>}
         />
 
         <Input
@@ -59,11 +79,26 @@ const PageOne = () => {
           className='mt-[3rem]'
           register={register('last_name', {
             onChange: handleChange,
-            required: true,
-            minLength: 2,
-            maxLength: 255,
-            pattern: /^[ა-ჰ]+$/,
+            required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
+            minLength: {
+              value: 2,
+              message: 'გვარის ველი უნდა შედგებოდეს მინიმუმ 2 სიმბოლოსგან',
+            },
+            maxLength: {
+              value: 255,
+              message: 'გვარის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან',
+            },
+            pattern: {
+              value: /^[ა-ჰ]+$/,
+              message: 'გვარის ველი უნდა შეიცავდეს მხოლოდ ანბანის ასოებს',
+            },
           })}
+        />
+
+        <ErrorMessage
+          name='last_name'
+          errors={errors}
+          render={({ message }) => <p>{message}</p>}
         />
 
         <Input
@@ -74,9 +109,18 @@ const PageOne = () => {
           className='mt-[3rem]'
           register={register('email', {
             onChange: handleChange,
-            required: true,
-            pattern: /^[\w.+-]+@redberry\.ge$/,
+            required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
+            pattern: {
+              value: /^[\w.+-]+@redberry\.ge$/,
+              message: 'თქვენ მიერ შეყვანილი მეილი არასწორია',
+            },
           })}
+        />
+
+        <ErrorMessage
+          name='email'
+          errors={errors}
+          render={({ message }) => <p>{message}</p>}
         />
 
         <div className='mt-28'>
