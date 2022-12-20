@@ -46,6 +46,7 @@ const PageOne = () => {
             onChange: handleChange,
             required: true,
             minLength: 2,
+            maxLength: 255,
             pattern: /^[ა-ჰ]+$/,
           })}
         />
@@ -60,6 +61,7 @@ const PageOne = () => {
             onChange: handleChange,
             required: true,
             minLength: 2,
+            maxLength: 255,
             pattern: /^[ა-ჰ]+$/,
           })}
         />
