@@ -1,6 +1,4 @@
 const Input = (props) => {
-  const errors = props.errors;
-  const name = props.name;
   return (
     <div className={props.className}>
       <div className='max-w-lg w-full'>
