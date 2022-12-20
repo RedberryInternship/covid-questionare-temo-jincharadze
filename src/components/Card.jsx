@@ -1,4 +1,6 @@
 import redberryLogo from '@/assets/images/redberry.png';
+import LeftArrow from '@/components/form/button/LeftArrow';
+import RightArrow from '@/components/form/button/RightArrow';
 
 const Card = (props) => {
   return (
@@ -9,6 +11,15 @@ const Card = (props) => {
       </div>
       <div className='border-b-2 border-custom-neutral-800 w-full mt-6'></div>
       <div>{props.children}</div>
+
+      <div className='flex justify-center mb-[6.5rem]'>
+        <div className='mr-[7.3125rem]'>
+          <LeftArrow />
+        </div>
+        <div>
+          <RightArrow />
+        </div>
+      </div>
     </div>
   );
 };
