@@ -1,17 +1,34 @@
 import { useForm } from 'react-hook-form';
 import Input from '@/components/form/input/Input';
 import pageOneImg from '@/assets/images/page-one.png';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FormDataContext } from '@/store/context';
 
 const PageOne = () => {
+  const getItems = JSON.parse(localStorage.getItem('items'));
+
   const { setFormData } = useContext(FormDataContext);
-  const { register, getValues } = useForm({ mode: 'onChange' });
+  const { register, getValues } = useForm({
+    mode: 'onChange',
+    defaultValues: getItems,
+  });
+
+  useEffect(() => {
+    if (getItems) {
+      setFormData((prev) => {
+        return { ...prev, ...getItems };
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = getValues(name);
 
+    localStorage.setItem(
+      'items',
+      JSON.stringify({ ...getItems, [name]: value })
+    );
     setFormData((prev) => {
       return { ...prev, [name]: value };
     });
@@ -29,6 +46,7 @@ const PageOne = () => {
             onChange: handleChange,
             required: true,
             minLength: 2,
+            pattern: /^[ა-ჰ]+$/,
           })}
         />
 
@@ -42,6 +60,7 @@ const PageOne = () => {
             onChange: handleChange,
             required: true,
             minLength: 2,
+            pattern: /^[ა-ჰ]+$/,
           })}
         />
 
