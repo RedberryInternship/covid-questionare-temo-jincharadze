@@ -24,6 +24,9 @@ module.exports = {
         'custom-neutral-800': '#232323',
       },
     },
+    fontFamily: {
+      anonymous: 'Anonymous Pro',
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

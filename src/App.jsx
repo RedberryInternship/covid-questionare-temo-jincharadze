@@ -1,9 +1,10 @@
 import Main from '@/pages/Main';
+import Card from '@/components/Card';
 
 function App() {
   return (
     <div>
-      <Main />
+      <Card />
     </div>
   );
 }
