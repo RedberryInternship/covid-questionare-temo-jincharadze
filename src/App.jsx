@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import Form from '@/pages/Form';
+import { FormDataProvider } from '@/store/context';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,7 +20,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <FormDataProvider>
+      <RouterProvider router={router} />
+    </FormDataProvider>
+  );
 }
 
 export default App;

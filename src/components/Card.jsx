@@ -12,7 +12,7 @@ const Card = (props) => {
       <div className='border-b-2 border-custom-neutral-800 w-full mt-6'></div>
       <div>{props.children}</div>
 
-      <div className='flex justify-center mb-[6.5rem]'>
+      <div className='flex justify-center'>
         <div className='mr-[7.3125rem]'>
           <LeftArrow />
         </div>

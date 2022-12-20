@@ -6,6 +6,7 @@ const Input = (props) => {
           <label className='text-[22px] font-bold'>{props.label}</label>
         </div>
         <input
+          {...props.register}
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}
