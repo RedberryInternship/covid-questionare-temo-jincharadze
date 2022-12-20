@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         'custom-neutral-800': '#232323',
         'custom-zinc-600': '#626262',
+        'custom-orange-600': '#F15524',
       },
     },
     fontFamily: {

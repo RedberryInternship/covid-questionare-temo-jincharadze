@@ -4,6 +4,7 @@ import pageOneImg from '@/assets/images/page-one.png';
 import { useContext, useEffect } from 'react';
 import { FormDataContext } from '@/store/context';
 import { ErrorMessage } from '@hookform/error-message';
+import Message from '@/components/form/error/Message';
 
 const PageOne = () => {
   const getItems = JSON.parse(localStorage.getItem('items'));
@@ -41,7 +42,7 @@ const PageOne = () => {
 
   return (
     <div className='flex justify-between'>
-      <div className='w-full mt-[2.6rem]'>
+      <div className='max-w-lg w-full mt-[2.6rem]'>
         <Input
           type='text'
           name='first_name'
@@ -68,7 +69,7 @@ const PageOne = () => {
         <ErrorMessage
           name='first_name'
           errors={errors}
-          render={({ message }) => <p>{message}</p>}
+          render={({ message }) => <Message message={message} />}
         />
 
         <Input
@@ -98,7 +99,7 @@ const PageOne = () => {
         <ErrorMessage
           name='last_name'
           errors={errors}
-          render={({ message }) => <p>{message}</p>}
+          render={({ message }) => <Message message={message} />}
         />
 
         <Input
@@ -120,7 +121,7 @@ const PageOne = () => {
         <ErrorMessage
           name='email'
           errors={errors}
-          render={({ message }) => <p>{message}</p>}
+          render={({ message }) => <Message message={message} />}
         />
 
         <div className='mt-28'>
