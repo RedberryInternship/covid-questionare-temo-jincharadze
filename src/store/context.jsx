@@ -6,6 +6,7 @@ export const defaultValues = {
   first_name: '',
   last_name: '',
   email: '',
+  pageOneIsValid: false,
 };
 
 export const FormDataProvider = (props) => {
