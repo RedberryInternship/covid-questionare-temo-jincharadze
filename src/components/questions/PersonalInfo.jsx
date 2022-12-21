@@ -1,16 +1,13 @@
 import { useForm } from 'react-hook-form';
 import Input from '@/components/form/input/Input';
 import pageOneImg from '@/assets/images/page-one.png';
-import { useContext, useEffect } from 'react';
-import { FormDataContext } from '@/store/context';
 import { ErrorMessage } from '@hookform/error-message';
 import Message from '@/components/form/error/Message';
 import Arrow from '@/components/form/button/Arrow';
-import { useNavigate } from 'react-router-dom';
+import { usePersonalInfo } from '@/components/questions/usePersonalInfo';
 
 const PageOne = () => {
   const getItems = JSON.parse(localStorage.getItem('items'));
-  const { setFormData } = useContext(FormDataContext);
   const {
     register,
     getValues,
@@ -20,36 +17,7 @@ const PageOne = () => {
     defaultValues: getItems,
   });
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (getItems) {
-      return setFormData((prev) => {
-        return { ...prev, ...getItems };
-      });
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = getValues(name);
-
-    localStorage.setItem(
-      'items',
-      JSON.stringify({ ...getItems, [name]: value })
-    );
-    setFormData((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setFormData((prev) => {
-      return { ...prev, pageOneIsValid: true };
-    });
-    navigate('/questionnaire?page=2');
-  };
+  const { handleChange, handleClick } = usePersonalInfo(getItems, getValues);
 
   return (
     <>
