@@ -1,40 +1,35 @@
-import { FormDataContext } from '@/store';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const usePersonalInfo = (getItems, getValues) => {
-  const { setFormData } = useContext(FormDataContext);
+const usePersonalInfo = (firstName, email, lastName, setFormState) => {
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (getItems) {
-      setFormData((prev) => {
-        return { ...prev, ...getItems };
-      });
-    }
-  }, []);
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = getValues(name);
+    const getItems = JSON.parse(localStorage.getItem('items'));
 
     localStorage.setItem(
       'items',
-      JSON.stringify({ ...getItems, [name]: value })
+      JSON.stringify({
+        ...getItems,
+        first_name: firstName,
+        email: email,
+        last_name: lastName,
+      })
     );
-    setFormData((prev) => {
-      return { ...prev, [name]: value };
+    setFormState((prev) => {
+      return {
+        ...prev,
+        first_name: firstName,
+        email: email,
+        last_name: lastName,
+      };
     });
-  };
+  }, [firstName, lastName, email]);
 
   const handleClick = (e) => {
     e.preventDefault();
-    setFormData((prev) => {
-      return { ...prev, pageOneIsValid: true };
-    });
     navigate('/questionnaire?page=2');
   };
 
-  return { handleChange, handleClick };
+  return { handleClick };
 };
 export default usePersonalInfo;

@@ -1,27 +1,29 @@
 import { PersonalInfo, Card, CovidInfo } from '@/components';
 import { useQuery } from '@/hooks';
 import { FormDataContext } from '@/store';
-import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { useForm } from '@/pages';
 
 const Form = () => {
   const { getQuery } = useQuery('page');
-  const { formData } = useContext(FormDataContext);
-  const navigate = useNavigate();
+  const {
+    setFormState,
+    getItems,
+    formState,
+    getValues,
+    formData: { isValid },
+  } = useContext(FormDataContext);
 
-  useEffect(() => {
-    if (getQuery === '2' && !formData.pageOneIsValid) {
-      navigate(-1);
-    }
-  }, []);
+  console.log(getValues());
+  console.log(formState);
 
-  console.log(formData);
+  useForm(setFormState, getItems, formState);
 
   return (
     <Card>
       <form>
         {getQuery === '1' && <PersonalInfo />}
-        {getQuery === '2' && formData.pageOneIsValid && <CovidInfo />}
+        {getQuery === '2' && <CovidInfo />}
       </form>
     </Card>
   );

@@ -3,7 +3,7 @@ import { Button } from '@/components';
 import { useQuery } from '@/hooks';
 
 const Arrow = (props) => {
-  const { getQuery } = useQuery(props.query);
+  const { getQuery } = useQuery('page');
 
   return (
     <div className='flex justify-center'>
