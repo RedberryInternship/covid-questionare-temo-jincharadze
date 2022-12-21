@@ -1,2 +1,2 @@
-export { default as PersonalInfo } from './PersonalInfo';
-export { default as usePersonalInfo } from './usePersonalInfo';
+export * from './personal';
+export * from './covid';

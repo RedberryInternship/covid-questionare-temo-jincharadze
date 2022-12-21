@@ -1,4 +1,4 @@
-import { PersonalInfo, Card } from '@/components';
+import { PersonalInfo, Card, CovidInfo } from '@/components';
 import { useQuery } from '@/hooks';
 import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
@@ -21,7 +21,7 @@ const Form = () => {
     <Card>
       <form>
         {getQuery === '1' && <PersonalInfo />}
-        {getQuery === '2' && formData.pageOneIsValid && <p>Second Page</p>}
+        {getQuery === '2' && formData.pageOneIsValid && <CovidInfo />}
       </form>
     </Card>
   );
