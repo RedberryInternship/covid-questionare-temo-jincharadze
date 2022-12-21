@@ -1,7 +1,6 @@
-import Card from '@/components/Card';
-import PersonalInfo from '@/components/questions/PersonalInfo';
-import useQuery from '@/hooks/useQuery';
-import { FormDataContext } from '@/store/context';
+import { PersonalInfo, Card } from '@/components';
+import { useQuery } from '@/hooks';
+import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,6 +14,8 @@ const Form = () => {
       navigate(-1);
     }
   }, []);
+
+  console.log(formData);
 
   return (
     <Card>

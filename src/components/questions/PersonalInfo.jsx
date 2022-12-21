@@ -1,10 +1,7 @@
 import { useForm } from 'react-hook-form';
-import Input from '@/components/form/input/Input';
-import pageOneImg from '@/assets/images/page-one.png';
+import { Input, Arrow, Message, usePersonalInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
-import Message from '@/components/form/error/Message';
-import Arrow from '@/components/form/button/Arrow';
-import { usePersonalInfo } from '@/components/questions/usePersonalInfo';
+import pageOneImg from '@/assets/images/page-one.png';
 
 const PageOne = () => {
   const getItems = JSON.parse(localStorage.getItem('items'));

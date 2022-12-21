@@ -1,7 +1,6 @@
-import LeftArrow from '@/components/LeftArrow';
-import RightArrow from '@/components/RightArrow';
-import Button from '@/components/form/button/Button';
-import useQuery from '@/hooks/useQuery';
+import { LeftArrow, RightArrow } from '@/components';
+import { Button } from '@/components';
+import { useQuery } from '@/hooks';
 
 const Arrow = (props) => {
   const { getQuery } = useQuery(props.query);

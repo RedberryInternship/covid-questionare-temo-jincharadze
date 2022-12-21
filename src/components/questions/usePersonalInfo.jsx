@@ -1,8 +1,8 @@
-import { FormDataContext } from '@/store/context';
+import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const usePersonalInfo = (getItems, getValues) => {
+const usePersonalInfo = (getItems, getValues) => {
   const { setFormData } = useContext(FormDataContext);
   const navigate = useNavigate();
 
@@ -37,3 +37,4 @@ export const usePersonalInfo = (getItems, getValues) => {
 
   return { handleChange, handleClick };
 };
+export default usePersonalInfo;

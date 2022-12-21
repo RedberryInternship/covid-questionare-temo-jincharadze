@@ -1,5 +1,5 @@
 import redberryLogo from '@/assets/images/redberry.png';
-import useQuery from '@/hooks/useQuery';
+import { useQuery } from '@/hooks';
 
 const Card = (props) => {
   const { getQuery } = useQuery('page');

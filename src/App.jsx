@@ -1,12 +1,11 @@
-import Main from '@/pages/Main';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import Form from '@/pages/Form';
-import { FormDataProvider } from '@/store/context';
+import { Form, Main } from '@/pages';
+import { FormDataProvider } from '@/store';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
