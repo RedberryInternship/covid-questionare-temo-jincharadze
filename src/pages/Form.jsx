@@ -1,5 +1,5 @@
 import Card from '@/components/Card';
-import PageOne from '@/components/questions/PageOne';
+import PersonalInfo from '@/components/questions/PersonalInfo';
 import useQuery from '@/hooks/useQuery';
 import { FormDataContext } from '@/store/context';
 import { useContext, useEffect } from 'react';
@@ -19,7 +19,7 @@ const Form = () => {
   return (
     <Card>
       <form>
-        {getQuery === '1' && <PageOne />}
+        {getQuery === '1' && <PersonalInfo />}
         {getQuery === '2' && formData.pageOneIsValid && <p>Second Page</p>}
       </form>
     </Card>
