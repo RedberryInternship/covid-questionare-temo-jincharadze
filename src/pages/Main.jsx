@@ -1,4 +1,4 @@
-import QuestionStart from '../components/QuestionStart';
+import { QuestionStart } from '@/components';
 
 const Main = () => {
   return (
