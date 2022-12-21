@@ -16,7 +16,7 @@ const PageOne = () => {
     getValues,
     formState: { errors, isValid },
   } = useForm({
-    mode: 'onChange',
+    mode: 'all',
     defaultValues: getItems,
   });
 
