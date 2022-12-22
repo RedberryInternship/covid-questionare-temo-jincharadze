@@ -16,6 +16,13 @@ const useCovidInfo = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (
+      !getValues('first_name') &&
+      !getValues('last_name') &&
+      !getValues('email')
+    ) {
+      return navigate('/questionnaire?page=1');
+    }
     const getItems = JSON.parse(localStorage.getItem('items'));
 
     localStorage.setItem(
