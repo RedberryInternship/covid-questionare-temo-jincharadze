@@ -9,6 +9,7 @@ const useCovidInfo = () => {
     register,
     setValue,
     getValues,
+    trigger,
     formState: { errors, isValid },
   } = useFormContext();
 
@@ -57,9 +58,19 @@ const useCovidInfo = () => {
     checkRadio[4],
   ]);
 
-  const nextClick = (e) => {
+  const nextClick = async (e) => {
     e.preventDefault();
-    navigate('/questionnaire?page=3');
+    const checkInput = await trigger([
+      'had_covid',
+      'had_antibody_test',
+      'covid_sickness_date',
+      'antibodies.test_date',
+      'antibodies.number',
+      'covid_sickness_date',
+    ]);
+    if (checkInput) {
+      return navigate('/questionnaire?page=3');
+    }
   };
 
   const backClick = (e) => {
@@ -74,6 +85,7 @@ const useCovidInfo = () => {
     checkRadio,
     backClick,
     setValue,
+    trigger,
     formState: { errors, isValid },
   };
 };

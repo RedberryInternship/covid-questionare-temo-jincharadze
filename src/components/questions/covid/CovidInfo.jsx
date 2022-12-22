@@ -10,7 +10,7 @@ const CovidInfo = () => {
     backClick,
     setValue,
     getValues,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useCovidInfo();
 
   return (
@@ -27,7 +27,7 @@ const CovidInfo = () => {
               name='had_covid'
               checked={getValues('had_covid') === 'yes'}
               register={register('had_covid', {
-                required: { value: true },
+                required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
               })}
               value='yes'
             />
@@ -39,17 +39,25 @@ const CovidInfo = () => {
               checked={getValues('had_covid') === 'no'}
               register={register('had_covid', {
                 onChange: () => setValue('had_antibody_test', ''),
-                required: { value: true },
+                required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
               })}
               value='no'
             />
+
             <Input
               type='radio'
               label='ახლა არა'
               name='had_covid'
               checked={getValues('had_covid') === 'have_right_now'}
-              register={register('had_covid', { required: { value: true } })}
+              register={register('had_covid', {
+                required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
+              })}
               value='have_right_now'
+            />
+            <ErrorMessage
+              name='had_covid'
+              errors={errors}
+              render={({ message }) => <Message message={message} />}
             />
           </div>
           {checkRadio[0] === 'yes' && (
@@ -69,15 +77,21 @@ const CovidInfo = () => {
                   })}
                   value='true'
                 />
+
                 <Input
                   type='radio'
                   label='არა'
                   name='had_antibody_test'
                   checked={getValues('had_antibody_test') === 'false'}
                   register={register('had_antibody_test', {
-                    required: { value: true },
+                    required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
                   })}
                   value='false'
+                />
+                <ErrorMessage
+                  name='had_antibody_test'
+                  errors={errors}
+                  render={({ message }) => <Message message={message} />}
                 />
               </div>
             </div>
@@ -170,11 +184,7 @@ const CovidInfo = () => {
         <img src={pageTwoImg} className='w-[53rem]' />
       </div>
       <div>
-        <Arrow
-          nextClick={nextClick}
-          backClick={backClick}
-          disabled={!isValid}
-        />
+        <Arrow nextClick={nextClick} backClick={backClick} />
       </div>
     </>
   );
