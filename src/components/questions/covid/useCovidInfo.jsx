@@ -8,6 +8,7 @@ const useCovidInfo = () => {
     setFormState,
     register,
     checkRadio,
+    setValue,
     formData: { errors, isValid },
   } = useContext(FormDataContext);
 
@@ -36,8 +37,8 @@ const useCovidInfo = () => {
         had_antibody_test: checkRadio[1],
         covid_sickness_date: checkRadio[4],
         antibodies: {
-          test_date: checkRadio[2],
-          number: checkRadio[3],
+          test_date: checkRadio[2] || '',
+          number: checkRadio[3] || '',
         },
       };
     });
@@ -65,6 +66,7 @@ const useCovidInfo = () => {
     nextClick,
     checkRadio,
     backClick,
+    setValue,
     formData: { errors, isValid },
   };
 };

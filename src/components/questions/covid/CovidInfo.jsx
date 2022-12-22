@@ -8,9 +8,12 @@ const CovidInfo = () => {
     register,
     nextClick,
     checkRadio,
+    setValue,
     backClick,
     formData: { errors, isValid },
   } = useCovidInfo();
+
+  console.log(isValid);
 
   return (
     <>
@@ -36,7 +39,10 @@ const CovidInfo = () => {
               label='არა'
               name='had_covid'
               checked={formState.had_covid === 'no'}
-              register={register('had_covid', { required: { value: true } })}
+              register={register('had_covid', {
+                onChange: () => setValue('had_antibody_test', ''),
+                required: { value: true },
+              })}
               value='no'
             />
             <Input
@@ -61,7 +67,7 @@ const CovidInfo = () => {
                   name='had_antibody_test'
                   checked={formState.had_antibody_test === 'true'}
                   register={register('had_antibody_test', {
-                    required: { value: true },
+                    required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
                   })}
                   value='true'
                 />
@@ -78,7 +84,7 @@ const CovidInfo = () => {
               </div>
             </div>
           )}
-          {checkRadio[1] === 'true' && (
+          {checkRadio[1] === 'true' && checkRadio[0] === 'yes' && (
             <div className='mt-12'>
               <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800 flex flex-col'>
                 თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი{' '}
@@ -93,6 +99,7 @@ const CovidInfo = () => {
                   onFocus={(e) => (e.target.type = 'date')}
                   onBlur={(e) => (e.target.type = 'text')}
                   register={register('antibodies.test_date', {
+                    required: { value: false },
                     pattern: {
                       value:
                         /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/,
@@ -113,6 +120,7 @@ const CovidInfo = () => {
                     name='antibodies.number'
                     placeholder='ანტისხეულების რაოდენობა'
                     register={register('antibodies.number', {
+                      required: { value: false },
                       pattern: {
                         value: /^[0-9]*$/,
                         message: 'გთხოვთ შეიყვანოთ ციფრი',
@@ -164,7 +172,11 @@ const CovidInfo = () => {
         <img src={pageTwoImg} className='w-[53rem]' />
       </div>
       <div>
-        <Arrow nextClick={nextClick} backClick={backClick} />
+        <Arrow
+          nextClick={nextClick}
+          backClick={backClick}
+          disabled={!isValid}
+        />
       </div>
     </>
   );
