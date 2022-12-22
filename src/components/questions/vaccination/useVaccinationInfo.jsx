@@ -74,6 +74,7 @@ const useVaccinationInfo = () => {
       'vaccination_stage',
       'i_am_waiting',
     ]);
+
     if (checkInput) {
       return navigate('/questionnaire?page=4');
     }
