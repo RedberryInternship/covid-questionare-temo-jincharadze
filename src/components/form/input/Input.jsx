@@ -1,29 +1,26 @@
 const Input = (props) => {
-  if (props.type === 'radio') {
-    return (
-      <div className='mb-5'>
-        <div className='flex'>
-          <input
-            id={props.value}
-            type='radio'
-            name={props.name}
-            className='hidden'
-            checked={props.checked}
-            {...props.register}
-            value={props.value}
-          />
-          <label
-            htmlFor={props.value}
-            className='flex items-center cursor-pointer text-xl font-normal'
-          >
-            <span className='w-[23px] h-[23px] mr-5 rounded-full border border-custom-neutral-800 '></span>
-            {props.label}
-          </label>
-        </div>
+  return props.type === 'radio' ? (
+    <div className='mb-5'>
+      <div className='flex'>
+        <input
+          id={props.value}
+          type='radio'
+          name={props.name}
+          className='hidden'
+          checked={props.checked}
+          {...props.register}
+          value={props.value}
+        />
+        <label
+          htmlFor={props.value}
+          className='flex items-center cursor-pointer text-xl font-normal'
+        >
+          <span className='w-[23px] h-[23px] mr-5 rounded-full border border-custom-neutral-800 '></span>
+          {props.label}
+        </label>
       </div>
-    );
-  }
-  return (
+    </div>
+  ) : (
     <div className={props.className}>
       <div className='max-w-lg w-full'>
         {props.label && (
