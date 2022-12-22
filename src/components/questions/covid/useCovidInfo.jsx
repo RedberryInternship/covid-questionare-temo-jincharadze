@@ -4,8 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 const useCovidInfo = () => {
-  const { formInputs, setFormInputs, checkRadio, firstName, lastName, email } =
-    useContext(FormDataContext);
+  const { setFormInputs, checkRadio } = useContext(FormDataContext);
   const {
     register,
     setValue,
@@ -72,7 +71,6 @@ const useCovidInfo = () => {
     getValues,
     register,
     nextClick,
-    formInputs,
     checkRadio,
     backClick,
     setValue,

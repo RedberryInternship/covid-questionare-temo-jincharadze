@@ -10,11 +10,8 @@ const CovidInfo = () => {
     backClick,
     setValue,
     getValues,
-    formInputs,
     formState: { errors, isValid },
   } = useCovidInfo();
-
-  console.log(formInputs);
 
   return (
     <>
