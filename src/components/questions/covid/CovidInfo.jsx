@@ -1,31 +1,16 @@
 import { Arrow, Input, Message, useCovidInfo } from '@/components';
-import { FormDataContext } from '@/store';
 import { ErrorMessage } from '@hookform/error-message';
-import { useContext } from 'react';
 import pageTwoImg from '@/assets/images/page-two.png';
-import { useNavigate } from 'react-router-dom';
 
 const CovidInfo = () => {
   const {
     formState,
-    setFormState,
     register,
+    nextClick,
     checkRadio,
+    backClick,
     formData: { errors, isValid },
-  } = useContext(FormDataContext);
-  const navigate = useNavigate();
-
-  useCovidInfo(checkRadio, setFormState);
-
-  const nextClick = (e) => {
-    e.preventDefault();
-    navigate('/questionnaire?page=3');
-  };
-
-  const backClick = (e) => {
-    e.preventDefault();
-    navigate('/questionnaire?page=1');
-  };
+  } = useCovidInfo();
 
   return (
     <>

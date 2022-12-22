@@ -1,6 +1,18 @@
-import { useEffect } from 'react';
+import { FormDataContext } from '@/store';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const useCovidInfo = (checkRadio, setFormState) => {
+const useCovidInfo = () => {
+  const {
+    formState,
+    setFormState,
+    register,
+    checkRadio,
+    formData: { errors, isValid },
+  } = useContext(FormDataContext);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getItems = JSON.parse(localStorage.getItem('items'));
 
@@ -36,6 +48,25 @@ const useCovidInfo = (checkRadio, setFormState) => {
     checkRadio[3],
     checkRadio[4],
   ]);
+
+  const nextClick = (e) => {
+    e.preventDefault();
+    navigate('/questionnaire?page=3');
+  };
+
+  const backClick = (e) => {
+    e.preventDefault();
+    navigate('/questionnaire?page=1');
+  };
+
+  return {
+    formState,
+    register,
+    nextClick,
+    checkRadio,
+    backClick,
+    formData: { errors, isValid },
+  };
 };
 
 export default useCovidInfo;
