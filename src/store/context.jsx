@@ -17,21 +17,15 @@ export const initialState = {
 };
 
 export const FormDataProvider = (props) => {
-  const [formState, setFormState] = useState(initialState);
+  const [formInputs, setFormInputs] = useState(initialState);
   const getItems = JSON.parse(localStorage.getItem('items'));
-  const {
-    register,
-    control,
-    setValue,
-    getValues,
-    formState: { errors, isValid },
-  } = useForm({
+  const form = useForm({
     mode: 'all',
     defaultValues: getItems,
   });
 
   const checkRadio = useWatch({
-    control,
+    control: form.control,
     name: [
       'had_covid',
       'had_antibody_test',
@@ -42,34 +36,30 @@ export const FormDataProvider = (props) => {
   });
 
   const firstName = useWatch({
-    control,
+    control: form.control,
     name: 'first_name',
   });
 
   const lastName = useWatch({
-    control,
+    control: form.control,
     name: 'last_name',
   });
 
   const email = useWatch({
-    control,
+    control: form.control,
     name: 'email',
   });
 
   return (
     <FormDataContext.Provider
       value={{
-        formState,
-        setFormState,
-        register,
-        getItems,
+        form,
+        formInputs,
+        setFormInputs,
         checkRadio,
         firstName,
         email,
         lastName,
-        setValue,
-        getValues,
-        formData: { errors, isValid },
       }}
     >
       {props.children}

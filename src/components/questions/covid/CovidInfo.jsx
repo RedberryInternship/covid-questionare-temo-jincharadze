@@ -4,16 +4,17 @@ import pageTwoImg from '@/assets/images/page-two.png';
 
 const CovidInfo = () => {
   const {
-    formState,
     register,
     nextClick,
     checkRadio,
-    setValue,
     backClick,
-    formData: { errors, isValid },
+    setValue,
+    getValues,
+    formInputs,
+    formState: { errors, isValid },
   } = useCovidInfo();
 
-  console.log(isValid);
+  console.log(formInputs);
 
   return (
     <>
@@ -27,7 +28,7 @@ const CovidInfo = () => {
               type='radio'
               label='კი'
               name='had_covid'
-              checked={formState.had_covid === 'yes'}
+              checked={getValues('had_covid') === 'yes'}
               register={register('had_covid', {
                 required: { value: true },
               })}
@@ -38,7 +39,7 @@ const CovidInfo = () => {
               type='radio'
               label='არა'
               name='had_covid'
-              checked={formState.had_covid === 'no'}
+              checked={getValues('had_covid') === 'no'}
               register={register('had_covid', {
                 onChange: () => setValue('had_antibody_test', ''),
                 required: { value: true },
@@ -49,7 +50,7 @@ const CovidInfo = () => {
               type='radio'
               label='ახლა არა'
               name='had_covid'
-              checked={formState.had_covid === 'have_right_now'}
+              checked={getValues('had_covid') === 'have_right_now'}
               register={register('had_covid', { required: { value: true } })}
               value='have_right_now'
             />
@@ -65,7 +66,7 @@ const CovidInfo = () => {
                   type='radio'
                   label='კი'
                   name='had_antibody_test'
-                  checked={formState.had_antibody_test === 'true'}
+                  checked={getValues('had_antibody_test') === 'true'}
                   register={register('had_antibody_test', {
                     required: { value: true, message: 'გთხოვთ აირჩიოთ ველი' },
                   })}
@@ -75,7 +76,7 @@ const CovidInfo = () => {
                   type='radio'
                   label='არა'
                   name='had_antibody_test'
-                  checked={formState.had_antibody_test === 'false'}
+                  checked={getValues('had_antibody_test') === 'false'}
                   register={register('had_antibody_test', {
                     required: { value: true },
                   })}

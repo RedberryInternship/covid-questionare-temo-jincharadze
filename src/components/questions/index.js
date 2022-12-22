@@ -1,2 +1,2 @@
-export * from './Personal';
-export * from './Covid';
+export * from './personal';
+export * from './covid';

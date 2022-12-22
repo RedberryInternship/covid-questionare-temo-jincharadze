@@ -1,16 +1,17 @@
 import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 const useCovidInfo = () => {
+  const { formInputs, setFormInputs, checkRadio, firstName, lastName, email } =
+    useContext(FormDataContext);
   const {
-    formState,
-    setFormState,
     register,
-    checkRadio,
     setValue,
-    formData: { errors, isValid },
-  } = useContext(FormDataContext);
+    getValues,
+    formState: { errors, isValid },
+  } = useFormContext();
 
   const navigate = useNavigate();
 
@@ -30,15 +31,15 @@ const useCovidInfo = () => {
         },
       })
     );
-    setFormState((prev) => {
+    setFormInputs(() => {
       return {
-        ...prev,
+        ...getValues(),
         had_covid: checkRadio[0],
         had_antibody_test: checkRadio[1],
         covid_sickness_date: checkRadio[4],
         antibodies: {
-          test_date: checkRadio[2] || '',
-          number: checkRadio[3] || '',
+          test_date: checkRadio[2],
+          number: checkRadio[3],
         },
       };
     });
@@ -61,13 +62,14 @@ const useCovidInfo = () => {
   };
 
   return {
-    formState,
+    getValues,
     register,
     nextClick,
+    formInputs,
     checkRadio,
     backClick,
     setValue,
-    formData: { errors, isValid },
+    formState: { errors, isValid },
   };
 };
 

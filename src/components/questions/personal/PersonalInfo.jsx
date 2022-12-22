@@ -6,7 +6,7 @@ const PersonalInfo = () => {
   const {
     handleClick,
     register,
-    formData: { isValid, errors },
+    formState: { errors, isValid },
   } = usePersonalInfo();
 
   return (
