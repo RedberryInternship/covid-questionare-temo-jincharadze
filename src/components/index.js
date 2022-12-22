@@ -1,5 +1,5 @@
-export * from './form';
-export * from './questions';
+export * from './Form';
+export * from './Questions';
 export { default as Card } from './Card';
 export { default as LeftArrow } from './LeftArrow';
 export { default as RightArrow } from './RightArrow';

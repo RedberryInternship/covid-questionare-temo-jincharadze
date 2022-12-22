@@ -26,7 +26,6 @@ export const FormDataProvider = (props) => {
     getValues,
     formState: { errors, isValid },
   } = useForm({
-    shouldUnregister: true,
     mode: 'all',
     defaultValues: getItems,
   });

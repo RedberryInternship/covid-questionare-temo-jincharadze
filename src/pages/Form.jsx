@@ -15,7 +15,6 @@ const Form = () => {
   } = useContext(FormDataContext);
 
   console.log(getValues());
-  console.log(formState);
 
   useForm(setFormState, getItems, formState);
 
