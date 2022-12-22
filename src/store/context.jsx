@@ -14,6 +14,9 @@ export const initialState = {
     test_date: '',
     number: '',
   },
+  had_vaccine: '',
+  vaccination_stage: '',
+  i_am_waiting: '',
 };
 
 export const FormDataProvider = (props) => {
@@ -33,6 +36,11 @@ export const FormDataProvider = (props) => {
       'antibodies.number',
       'covid_sickness_date',
     ],
+  });
+
+  const checkVaccinate = useWatch({
+    control: form.control,
+    name: ['had_vaccine', 'vaccination_stage', 'i_am_waiting'],
   });
 
   const firstName = useWatch({
@@ -59,6 +67,7 @@ export const FormDataProvider = (props) => {
         checkRadio,
         firstName,
         email,
+        checkVaccinate,
         lastName,
       }}
     >
