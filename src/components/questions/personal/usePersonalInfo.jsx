@@ -1,8 +1,19 @@
-import { useEffect } from 'react';
+import { FormDataContext } from '@/store';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const usePersonalInfo = (firstName, email, lastName, setFormState) => {
+const usePersonalInfo = () => {
+  const {
+    register,
+    firstName,
+    lastName,
+    email,
+    setFormState,
+    formData: { errors, isValid },
+  } = useContext(FormDataContext);
+
   const navigate = useNavigate();
+
   useEffect(() => {
     const getItems = JSON.parse(localStorage.getItem('items'));
 
@@ -30,6 +41,6 @@ const usePersonalInfo = (firstName, email, lastName, setFormState) => {
     navigate('/questionnaire?page=2');
   };
 
-  return { handleClick };
+  return { handleClick, register, formData: { isValid, errors } };
 };
 export default usePersonalInfo;

@@ -1,25 +1,13 @@
 import { Input, Arrow, Message, usePersonalInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
 import pageOneImg from '@/assets/images/page-one.png';
-import { useContext, useEffect } from 'react';
-import { FormDataContext } from '@/store';
 
 const PersonalInfo = () => {
   const {
+    handleClick,
     register,
-    firstName,
-    lastName,
-    email,
-    setFormState,
-    formData: { errors, isValid },
-  } = useContext(FormDataContext);
-
-  const { handleClick } = usePersonalInfo(
-    firstName,
-    email,
-    lastName,
-    setFormState
-  );
+    formData: { isValid, errors },
+  } = usePersonalInfo();
 
   return (
     <>
