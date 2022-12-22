@@ -1,10 +1,9 @@
 import { LeftArrow, RightArrow } from '@/components';
 import { Button } from '@/components';
-import { useQuery } from '@/hooks';
+import useArrow from './useArrow';
 
 const Arrow = (props) => {
-  const { getQuery } = useQuery(props.query);
-
+  const { getQuery } = useArrow();
   return (
     <div className='flex justify-center'>
       <div className='mr-[7.3125rem]'>

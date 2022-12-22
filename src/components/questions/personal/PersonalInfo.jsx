@@ -1,20 +1,13 @@
-import { useForm } from 'react-hook-form';
 import { Input, Arrow, Message, usePersonalInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
 import pageOneImg from '@/assets/images/page-one.png';
 
-const PageOne = () => {
-  const getItems = JSON.parse(localStorage.getItem('items'));
+const PersonalInfo = () => {
   const {
+    handleClick,
     register,
-    getValues,
     formState: { errors, isValid },
-  } = useForm({
-    mode: 'all',
-    defaultValues: getItems,
-  });
-
-  const { handleChange, handleClick } = usePersonalInfo(getItems, getValues);
+  } = usePersonalInfo();
 
   return (
     <>
@@ -26,7 +19,6 @@ const PageOne = () => {
             placeholder='იოსებ'
             label='სახელი*'
             register={register('first_name', {
-              onChange: handleChange,
               required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
               minLength: {
                 value: 2,
@@ -57,7 +49,6 @@ const PageOne = () => {
             label='გვარი*'
             className='mt-[3rem]'
             register={register('last_name', {
-              onChange: handleChange,
               required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
               minLength: {
                 value: 2,
@@ -87,7 +78,6 @@ const PageOne = () => {
             label='მეილი*'
             className='mt-[3rem]'
             register={register('email', {
-              onChange: handleChange,
               required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
               pattern: {
                 value: /^[\w.+-]+@redberry\.ge$/,
@@ -117,4 +107,4 @@ const PageOne = () => {
   );
 };
 
-export default PageOne;
+export default PersonalInfo;
