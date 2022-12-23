@@ -1,4 +1,4 @@
-import { PersonalInfo, Card, CovidInfo } from '@/components';
+import { PersonalInfo, Card, CovidInfo, VaccinationInfo } from '@/components';
 import { useForm } from '@/pages';
 import { FormProvider } from 'react-hook-form';
 
@@ -10,6 +10,7 @@ const Form = () => {
         <form>
           {getQuery === '1' && <PersonalInfo />}
           {getQuery === '2' && <CovidInfo />}
+          {getQuery === '3' && <VaccinationInfo />}
         </form>
       </FormProvider>
     </Card>

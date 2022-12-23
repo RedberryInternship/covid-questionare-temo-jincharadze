@@ -24,6 +24,7 @@ module.exports = {
         'custom-neutral-800': '#232323',
         'custom-zinc-600': '#626262',
         'custom-orange-600': '#F15524',
+        'custom-cyan-600': '#1289AE',
       },
     },
     fontFamily: {
