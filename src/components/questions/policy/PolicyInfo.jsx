@@ -7,8 +7,7 @@ import {
   Button,
 } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
-import bike from '@/assets/images/bike.png';
-import heart from '@/assets/images/heart.png';
+import { bike, heart } from '@/assets';
 
 const PolicyInfo = (props) => {
   const {

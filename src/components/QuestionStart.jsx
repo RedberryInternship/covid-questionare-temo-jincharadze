@@ -1,5 +1,5 @@
-import mainLogo from '@/assets/images/logo.png';
 import { Link } from 'react-router-dom';
+import { mainLogo } from '@/assets';
 
 const QuestionStart = () => {
   return (

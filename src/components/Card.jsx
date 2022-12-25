@@ -1,4 +1,4 @@
-import redberryLogo from '@/assets/images/redberry.png';
+import { redberryLogo } from '@/assets';
 import { useQuery } from '@/hooks';
 
 const Card = (props) => {

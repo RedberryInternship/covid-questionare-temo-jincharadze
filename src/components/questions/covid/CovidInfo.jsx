@@ -1,6 +1,6 @@
 import { Arrow, Input, Message, useCovidInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
-import pageTwoImg from '@/assets/images/page-two.png';
+import { pageTwoImg } from '@/assets';
 
 const CovidInfo = (props) => {
   const {

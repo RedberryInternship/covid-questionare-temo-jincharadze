@@ -1,12 +1,12 @@
 import { Input, Arrow, Message, usePersonalInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
-import pageOneImg from '@/assets/images/page-one.png';
+import { pageOneImg } from '@/assets';
 
 const PersonalInfo = (props) => {
   const {
     handleClick,
     register,
-    formState: { errors, isValid },
+    formState: { errors },
   } = usePersonalInfo();
 
   return (

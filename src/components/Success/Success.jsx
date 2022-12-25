@@ -1,6 +1,4 @@
-import starOne from '@/assets/images/star-one.png';
-import starTwo from '@/assets/images/star-two.png';
-import heart from '@/assets/images/heart.png';
+import { starOne, starTwo, heart } from '@/assets';
 
 const Success = () => {
   return (

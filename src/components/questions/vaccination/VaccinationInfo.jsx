@@ -7,8 +7,7 @@ import {
   Vaccinated,
 } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
-import doctor from '@/assets/images/doctor.png';
-import star from '@/assets/images/star.png';
+import { doctor, star } from '@/assets';
 
 const VaccinationInfo = (props) => {
   const {
