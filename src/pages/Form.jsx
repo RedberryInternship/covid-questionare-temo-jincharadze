@@ -1,16 +1,24 @@
-import { PersonalInfo, Card, CovidInfo, VaccinationInfo } from '@/components';
+import {
+  PersonalInfo,
+  Card,
+  CovidInfo,
+  VaccinationInfo,
+  PolicyInfo,
+} from '@/components';
 import { useForm } from '@/pages';
 import { FormProvider } from 'react-hook-form';
 
 const Form = () => {
   const { form, getQuery } = useForm();
+
   return (
     <Card>
       <FormProvider {...form}>
         <form>
-          {getQuery === '1' && <PersonalInfo />}
-          {getQuery === '2' && <CovidInfo />}
-          {getQuery === '3' && <VaccinationInfo />}
+          <PersonalInfo className={getQuery !== '1' ? 'hidden' : ''} />
+          <CovidInfo className={getQuery !== '2' ? 'hidden' : ''} />
+          <VaccinationInfo className={getQuery !== '3' ? 'hidden' : ''} />
+          <PolicyInfo className={getQuery !== '4' ? 'hidden' : ''} />
         </form>
       </FormProvider>
     </Card>

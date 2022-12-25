@@ -1,3 +1,4 @@
+import { useQuery } from '@/hooks';
 import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -15,56 +16,55 @@ const useVaccinationInfo = () => {
   } = useFormContext();
 
   const navigate = useNavigate();
+  const { getQuery } = useQuery('page');
 
   useEffect(() => {
-    if (
-      !getValues('first_name') &&
-      !getValues('last_name') &&
-      !getValues('email')
-    ) {
-      return navigate('/questionnaire?page=1');
-    }
+    if (getQuery === '3') {
+      const checkInputs = async () => {
+        const data = await trigger([
+          'had_covid',
+          'had_antibody_test',
+          'antibodies.test_date',
+          'antibodies.number',
+          'covid_sickness_date',
+        ]);
 
-    if (
-      getValues('first_name') &&
-      getValues('last_name') &&
-      getValues('email')
-    ) {
-      if (!getValues('had_covid')) {
-        return navigate('/questionnaire?page=2');
-      }
+        const checkFirstPage = await trigger([
+          'first_name',
+          'last_name',
+          'email',
+        ]);
 
-      if (getValues('had_covid') === 'yes' && !getValues('had_antibody_test')) {
-        return navigate('/questionnaire?page=2');
-      }
+        if (!checkFirstPage) {
+          return navigate('/questionnaire?page=1');
+        }
 
-      if (
-        getValues('had_covid') === 'yes' &&
-        getValues('had_antibody_test') === 'false' &&
-        !getValues('covid_sickness_date')
-      ) {
-        return navigate('/questionnaire?page=2');
-      }
-    }
-
-    localStorage.setItem(
-      'items',
-      JSON.stringify({
-        ...getItems,
-        had_vaccine: checkVaccinate[0],
-        vaccination_stage: checkVaccinate[1],
-        i_am_waiting: checkVaccinate[2],
-      })
-    );
-
-    setFormInputs(() => {
-      return {
-        ...getValues(),
-        had_vaccine: checkVaccinate[0],
-        vaccination_stage: checkVaccinate[1],
-        i_am_waiting: checkVaccinate[2],
+        if (!data) {
+          return navigate('/questionnaire?page=2');
+        }
       };
-    });
+
+      checkInputs();
+
+      localStorage.setItem(
+        'items',
+        JSON.stringify({
+          ...getItems,
+          had_vaccine: checkVaccinate[0],
+          vaccination_stage: checkVaccinate[1],
+          i_am_waiting: checkVaccinate[2],
+        })
+      );
+
+      return setFormInputs(() => {
+        return {
+          ...getValues(),
+          had_vaccine: checkVaccinate[0],
+          vaccination_stage: checkVaccinate[1],
+          i_am_waiting: checkVaccinate[2],
+        };
+      });
+    }
   }, [checkVaccinate[0], checkVaccinate[1], checkVaccinate[2]]);
 
   const nextClick = async (e) => {

@@ -14,9 +14,11 @@ const Arrow = (props) => {
         )}
       </div>
       <div>
-        <Button disabled={props.disabled} onClick={props.nextClick}>
-          <RightArrow />
-        </Button>
+        {getQuery < 4 && (
+          <Button disabled={props.disabled} onClick={props.nextClick}>
+            <RightArrow />
+          </Button>
+        )}
       </div>
     </div>
   );

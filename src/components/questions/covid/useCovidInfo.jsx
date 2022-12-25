@@ -1,3 +1,4 @@
+import { useQuery } from '@/hooks';
 import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -14,42 +15,47 @@ const useCovidInfo = () => {
   } = useFormContext();
 
   const navigate = useNavigate();
+  const { getQuery } = useQuery('page');
 
   useEffect(() => {
-    if (
-      !getValues('first_name') &&
-      !getValues('last_name') &&
-      !getValues('email')
-    ) {
-      return navigate('/questionnaire?page=1');
-    }
-    const getItems = JSON.parse(localStorage.getItem('items'));
+    if (getQuery === '2') {
+      const getItems = JSON.parse(localStorage.getItem('items'));
 
-    localStorage.setItem(
-      'items',
-      JSON.stringify({
-        ...getItems,
-        had_covid: checkRadio[0],
-        had_antibody_test: checkRadio[1],
-        covid_sickness_date: checkRadio[4],
-        antibodies: {
-          test_date: checkRadio[2],
-          number: checkRadio[3],
-        },
-      })
-    );
-    setFormInputs(() => {
-      return {
-        ...getValues(),
-        had_covid: checkRadio[0],
-        had_antibody_test: checkRadio[1],
-        covid_sickness_date: checkRadio[4],
-        antibodies: {
-          test_date: checkRadio[2],
-          number: checkRadio[3],
-        },
+      const checkInputs = async () => {
+        const data = await trigger(['first_name', 'last_name', 'email']);
+        if (!data) {
+          return navigate('/questionnaire?page=1');
+        }
       };
-    });
+
+      checkInputs();
+
+      localStorage.setItem(
+        'items',
+        JSON.stringify({
+          ...getItems,
+          had_covid: checkRadio[0],
+          had_antibody_test: checkRadio[1],
+          covid_sickness_date: checkRadio[4],
+          antibodies: {
+            test_date: checkRadio[2],
+            number: checkRadio[3],
+          },
+        })
+      );
+      return setFormInputs(() => {
+        return {
+          ...getValues(),
+          had_covid: checkRadio[0],
+          had_antibody_test: checkRadio[1],
+          covid_sickness_date: checkRadio[4],
+          antibodies: {
+            test_date: checkRadio[2],
+            number: checkRadio[3],
+          },
+        };
+      });
+    }
   }, [
     checkRadio[0],
     checkRadio[1],
@@ -60,14 +66,15 @@ const useCovidInfo = () => {
 
   const nextClick = async (e) => {
     e.preventDefault();
+
     const checkInput = await trigger([
       'had_covid',
       'had_antibody_test',
       'covid_sickness_date',
       'antibodies.test_date',
       'antibodies.number',
-      'covid_sickness_date',
     ]);
+
     if (checkInput) {
       return navigate('/questionnaire?page=3');
     }
