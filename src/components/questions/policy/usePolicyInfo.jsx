@@ -1,9 +1,9 @@
 import { useQuery } from '@/hooks';
+import { sendFormData } from '@/services';
 import { FormDataContext } from '@/store';
 import { useContext, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const usePolicyInfo = () => {
   const {
@@ -135,7 +135,7 @@ const usePolicyInfo = () => {
     const antibodies = Object.fromEntries(
       Object.entries(transformFormData.antibodies).filter(([e, v]) => v !== '')
     );
-    const data = Object.fromEntries(
+    const filteredData = Object.fromEntries(
       Object.entries(transformFormData).filter(([e, v]) => v !== '')
     );
 
@@ -143,18 +143,11 @@ const usePolicyInfo = () => {
       return;
     }
 
-    const formData = { ...data, antibodies: antibodies };
-    const response = await axios({
-      method: 'post',
-      url: import.meta.env.VITE_COVID_QUESTIONAIRE_API_URL,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      data: formData,
-    });
+    const formData = { ...filteredData, antibodies: antibodies };
 
-    if (response.statusText === 'Created') {
+    const sendData = await sendFormData(formData);
+
+    if (sendData.statusText === 'Created') {
       localStorage.removeItem('items');
       navigate('/success', { replace: true });
     }
