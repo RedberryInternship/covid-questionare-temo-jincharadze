@@ -18,7 +18,7 @@ const CovidInfo = (props) => {
       <div className={props.className}>
         <div className='flex justify-between'>
           <div>
-            <h2 className='mt-[2.6rem] mb-4 text-[22px] font-bold text-custom-neutral-800'>
+            <h2 className='mt-[2.6rem] mb-4 text-md font-bold text-custom-neutral-800'>
               გაქვს გადატანილი Covid-19?*
             </h2>
             <div className='ml-5'>
@@ -71,7 +71,7 @@ const CovidInfo = (props) => {
             </div>
             {checkRadio[0] === 'yes' && (
               <div className='mt-11'>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                   ანტისხეულების ტესტი გაქვს გაკეთებული?*
                 </h2>
 
@@ -114,7 +114,7 @@ const CovidInfo = (props) => {
             )}
             {checkRadio[1] === 'true' && checkRadio[0] === 'yes' && (
               <div className='mt-12'>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800 flex flex-col'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800 flex flex-col'>
                   თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი{' '}
                   <span>რიცხვი და ანტისხეულების რაოდენობა*</span>
                 </h2>
@@ -167,7 +167,7 @@ const CovidInfo = (props) => {
             )}
             {checkRadio[1] === 'false' && (
               <div className='mt-11 '>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800 flex flex-col'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800 flex flex-col'>
                   მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი)
                   <span>როდის გქონდა Covid-19*</span>
                 </h2>

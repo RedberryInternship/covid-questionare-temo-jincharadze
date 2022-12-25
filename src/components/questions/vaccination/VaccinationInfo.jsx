@@ -25,7 +25,7 @@ const VaccinationInfo = (props) => {
       <div className={props.className}>
         <div className='flex justify-between'>
           <div>
-            <h2 className='mt-[2.6rem] mb-4 text-[22px] font-bold text-custom-neutral-800'>
+            <h2 className='mt-[2.6rem] mb-4 text-md font-bold text-custom-neutral-800'>
               უკვე აცრილი ხარ?*
             </h2>
 
@@ -66,7 +66,7 @@ const VaccinationInfo = (props) => {
 
             {checkVaccinate[0] === 'true' && (
               <div>
-                <h2 className='mt-[2.6rem] mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mt-[2.6rem] mb-4 text-md font-bold text-custom-neutral-800'>
                   აირჩიე რა ეტაპზე ხარ*
                 </h2>
                 <div className='ml-5'>
@@ -131,7 +131,7 @@ const VaccinationInfo = (props) => {
 
             {checkVaccinate[0] === 'false' && (
               <div>
-                <h2 className='mt-[2.6rem] mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mt-[2.6rem] mb-4 text-md font-bold text-custom-neutral-800'>
                   რას ელოდები?*
                 </h2>
                 <div className='ml-5'>

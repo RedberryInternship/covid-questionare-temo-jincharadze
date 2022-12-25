@@ -2,6 +2,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
     extend: {
+      fontSize: { md: '22px' },
       keyframes: {
         shrink: {
           '0%': { transform: 'scaleX(40) scaleY(42)' },

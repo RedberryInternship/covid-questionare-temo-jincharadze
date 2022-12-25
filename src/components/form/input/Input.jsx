@@ -25,7 +25,7 @@ const Input = (props) => {
       <div className='w-full max-w-lg'>
         {props.label && (
           <div className='mb-3'>
-            <label className='text-[22px] font-bold'>{props.label}</label>
+            <label className='text-md font-bold'>{props.label}</label>
           </div>
         )}
         <input

@@ -23,7 +23,7 @@ const PolicyInfo = (props) => {
       <div className={props.className}>
         <div className='flex justify-between'>
           <div className='mt-11'>
-            <h2 className='flex flex-col  font-normal text-[22px] text-custom-neutral-800'>
+            <h2 className='flex flex-col  font-normal text-md text-custom-neutral-800'>
               რედბერის მთავარი ღირებულება ჩვენი გუნდის <br />
               თითოეული წევრია. გარემო, რომელსაც ჩვენი <br /> თანამშრომლები
               ქმნით, ბევრისთვის არის და ყოფილა <br /> წლების განმავლობაში
@@ -37,7 +37,7 @@ const PolicyInfo = (props) => {
             </h2>
 
             <div className='mt-11'>
-              <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800'>
+              <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                 რა სიხშირით შეიძლება გვქონდეს საერთო <br /> არაფორმალური ონლაინ
                 შეხვედრები, სადაც ყველა <br />
                 სურვილისამებრ ჩაერთვება?*
@@ -101,7 +101,7 @@ const PolicyInfo = (props) => {
               </div>
 
               <div className='mt-11'>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                   კვირაში რამდენი დღე ისურვებდი ოფისიდან <br />
                   მუშაობას?*
                 </h2>
@@ -182,7 +182,7 @@ const PolicyInfo = (props) => {
               </div>
 
               <div className='mt-12'>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                   რას ფიქრობ ფიზიკურ შეკრებებზე?
                 </h2>
                 <TextArea
@@ -203,7 +203,7 @@ const PolicyInfo = (props) => {
               </div>
 
               <div className='mt-12'>
-                <h2 className='mb-4 text-[22px] font-bold text-custom-neutral-800'>
+                <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                   რას ფიქრობ არსებულ გარემოზე: <br />
                   რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?
                 </h2>
