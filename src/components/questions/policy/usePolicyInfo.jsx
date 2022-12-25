@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 const usePolicyInfo = () => {
   const {
     setFormInputs,
@@ -145,7 +146,7 @@ const usePolicyInfo = () => {
     const formData = { ...data, antibodies: antibodies };
     const response = await axios({
       method: 'post',
-      url: 'https://covid19.devtest.ge/api/create',
+      url: import.meta.env.VITE_COVID_QUESTIONAIRE_API_URL,
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
