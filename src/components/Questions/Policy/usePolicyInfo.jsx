@@ -140,7 +140,7 @@ const usePolicyInfo = () => {
     );
 
     if (!isValid) {
-      return;
+      return trigger();
     }
 
     const formData = { ...filteredData, antibodies: antibodies };

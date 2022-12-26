@@ -37,18 +37,20 @@ const PersonalInfo = (props) => {
               })}
             />
 
-            <ErrorMessage
-              name='first_name'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
-            />
+            <div className='mt-2 h-6'>
+              <ErrorMessage
+                name='first_name'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
 
             <Input
               type='text'
               name='last_name'
               placeholder='ჯუღაშვილი'
               label='გვარი*'
-              className='mt-[3rem]'
+              className='mt-5'
               register={register('last_name', {
                 required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
                 minLength: {
@@ -66,19 +68,20 @@ const PersonalInfo = (props) => {
                 },
               })}
             />
-
-            <ErrorMessage
-              name='last_name'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
-            />
+            <div className='mt-2 h-6'>
+              <ErrorMessage
+                name='last_name'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
 
             <Input
               type='email'
               name='email'
               placeholder='fbi@redberry.ge'
               label='მეილი*'
-              className='mt-[3rem]'
+              className='mt-5'
               register={register('email', {
                 required: { value: true, message: 'გთხოვთ შეავსოთ ველი' },
                 pattern: {
@@ -88,12 +91,13 @@ const PersonalInfo = (props) => {
                 },
               })}
             />
-
-            <ErrorMessage
-              name='email'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
-            />
+            <div className='mt-2 h-6'>
+              <ErrorMessage
+                name='email'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
 
             <div className='mt-28'>
               <div className='border-[0.8px] w-[14.8rem] border-black'></div>
