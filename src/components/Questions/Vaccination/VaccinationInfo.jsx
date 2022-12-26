@@ -216,7 +216,13 @@ const VaccinationInfo = (props) => {
             />
           </div>
         </div>
-        <Arrow backClick={backClick} nextClick={nextClick} />
+        <Arrow
+          backClick={backClick}
+          nextClick={nextClick}
+          stroke={
+            !checkVaccinate[0] || !checkVaccinate[1] ? '#8D8D8D' : '#232323'
+          }
+        />
       </div>
     </>
   );
