@@ -118,7 +118,6 @@ const PersonalInfo = (props) => {
               : '#232323'
           }
           nextClick={handleClick}
-          disabled={firstNameError || lastNameError || emailNameError}
         />
       </div>
     </>
