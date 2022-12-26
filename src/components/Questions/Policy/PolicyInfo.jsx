@@ -234,14 +234,14 @@ const PolicyInfo = (props) => {
               </Button>
             </div>
           </div>
-          <div className='sticky flex justify-center overflow-hidden'>
+          <div className='fixed right-0 flex justify-center overflow-hidden'>
             <div className='z-10 animate-heart'>
               <img src={heart} alt='heart image' />
             </div>
             <img
               src={bike}
               alt='bike image'
-              className='z-20 h-[43.8rem] mt-[4.5rem] relative'
+              className='z-20 h-[43.8rem] mt-[4.5rem]'
             />
           </div>
         </div>
