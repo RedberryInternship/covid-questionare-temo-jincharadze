@@ -1,0 +1,10 @@
+export { default as mainLogo } from './logo.png';
+export { default as pageTwoImg } from './page-two.png';
+export { default as pageOneImg } from './page-one.png';
+export { default as bike } from './bike.png';
+export { default as heart } from './heart.png';
+export { default as starOne } from './star-one.png';
+export { default as starTwo } from './star-two.png';
+export { default as redberryLogo } from './redberry.png';
+export { default as doctor } from './doctor.png';
+export { default as star } from './star.png';

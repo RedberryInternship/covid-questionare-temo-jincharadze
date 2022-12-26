@@ -17,6 +17,10 @@ export const initialState = {
   had_vaccine: '',
   vaccination_stage: '',
   i_am_waiting: '',
+  non_formal_meetings: '',
+  number_of_days_from_office: '',
+  what_about_meetings_in_live: '',
+  tell_us_your_opinion_about_us: '',
 };
 
 export const FormDataProvider = (props) => {
@@ -58,6 +62,26 @@ export const FormDataProvider = (props) => {
     name: 'email',
   });
 
+  const nonFormalMeetings = useWatch({
+    control: form.control,
+    name: 'non_formal_meetings',
+  });
+
+  const workFromOffice = useWatch({
+    control: form.control,
+    name: 'number_of_days_from_office',
+  });
+
+  const meetingInLive = useWatch({
+    control: form.control,
+    name: 'what_about_meetings_in_live',
+  });
+
+  const tellUsOpinion = useWatch({
+    control: form.control,
+    name: 'tell_us_your_opinion_about_us',
+  });
+
   return (
     <FormDataContext.Provider
       value={{
@@ -69,6 +93,10 @@ export const FormDataProvider = (props) => {
         email,
         checkVaccinate,
         lastName,
+        nonFormalMeetings,
+        workFromOffice,
+        meetingInLive,
+        tellUsOpinion,
       }}
     >
       {props.children}

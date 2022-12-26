@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { Form, Main } from '@/pages';
 import { FormDataProvider } from '@/store';
+import { Success } from '@/components';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,6 +14,9 @@ const router = createBrowserRouter(
       <Route index element={<Main />} />
       <Route path='/questionnaire'>
         <Route index element={<Form />} />
+      </Route>
+      <Route path='/success'>
+        <Route index element={<Success />} />
       </Route>
     </Route>
   )
