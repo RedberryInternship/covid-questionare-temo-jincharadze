@@ -16,7 +16,7 @@ const Arrow = (props) => {
       <div>
         {getQuery < 4 && (
           <Button disabled={props.disabled} onClick={props.nextClick}>
-            <RightArrow />
+            <RightArrow stroke={props.stroke} />
           </Button>
         )}
       </div>

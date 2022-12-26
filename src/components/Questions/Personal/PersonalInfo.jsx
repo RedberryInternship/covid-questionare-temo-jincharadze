@@ -6,6 +6,9 @@ const PersonalInfo = (props) => {
   const {
     handleClick,
     register,
+    firstNameError,
+    lastNameError,
+    emailNameError,
     formState: { errors },
   } = usePersonalInfo();
 
@@ -108,7 +111,15 @@ const PersonalInfo = (props) => {
             <img src={pageOneImg} className=' w-[850px] z-20' />
           </div>
         </div>
-        <Arrow nextClick={handleClick} />
+        <Arrow
+          stroke={
+            firstNameError || lastNameError || emailNameError
+              ? '#8D8D8D'
+              : '#232323'
+          }
+          nextClick={handleClick}
+          disabled={firstNameError || lastNameError || emailNameError}
+        />
       </div>
     </>
   );

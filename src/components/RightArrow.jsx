@@ -1,4 +1,4 @@
-const RightArrow = () => {
+const RightArrow = (props) => {
   return (
     <div>
       <svg
@@ -10,7 +10,7 @@ const RightArrow = () => {
       >
         <path
           d='M1 1L15 11.3158L1 21.6316'
-          stroke='#232323'
+          stroke={props.stroke}
           strokeWidth='2.4'
         />
       </svg>
