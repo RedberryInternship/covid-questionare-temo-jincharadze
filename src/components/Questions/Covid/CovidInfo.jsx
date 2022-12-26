@@ -14,10 +14,6 @@ const CovidInfo = (props) => {
     formState: { errors },
   } = useCovidInfo();
 
-  console.log(
-    new Date().toLocaleString().split(',')[0].split('/').reverse().join('-')
-  );
-
   return (
     <>
       <div className={props.className}>
