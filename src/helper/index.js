@@ -1,0 +1,1 @@
+export { checkDate } from './date';

@@ -34,6 +34,7 @@ const Input = (props) => {
           onFocus={props.onFocus}
           type={props.type}
           name={props.name}
+          max={props.max}
           placeholder={props.placeholder}
           className='h-[3.125rem] w-full px-5 border-[0.8px] border-custom-neutral-800 text-lg focus:ring-0 focus:border-current font-normal text-custom-neutral-800'
         />

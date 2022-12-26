@@ -1,5 +1,6 @@
 import { Arrow, Input, Message, useCovidInfo } from '@/components';
 import { ErrorMessage } from '@hookform/error-message';
+import { checkDate } from '@/helper';
 import { pageTwoImg } from '@/assets';
 
 const CovidInfo = (props) => {
@@ -12,6 +13,10 @@ const CovidInfo = (props) => {
     getValues,
     formState: { errors },
   } = useCovidInfo();
+
+  console.log(
+    new Date().toLocaleString().split(',')[0].split('/').reverse().join('-')
+  );
 
   return (
     <>
@@ -133,6 +138,10 @@ const CovidInfo = (props) => {
                           /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/,
                         message: 'გთხოვთ შეიყვანოთ სწორი თარიღი',
                       },
+                      max: {
+                        value: checkDate,
+                        message: 'გთხოვთ შეიყვანოთ ვალიდური თარიღი',
+                      },
                     })}
                   />
 
@@ -184,6 +193,10 @@ const CovidInfo = (props) => {
                         value:
                           /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/,
                         message: 'გთხოვთ შეიყვანოთ სწორი თარიღი',
+                      },
+                      max: {
+                        value: checkDate,
+                        message: 'გთხოვთ შეიყვანოთ ვალიდური თარიღი',
                       },
                     })}
                   />
