@@ -22,7 +22,7 @@ const PolicyInfo = (props) => {
     <>
       <div className={props.className}>
         <div className='flex justify-between'>
-          <div className='mt-11'>
+          <div className='mt-24'>
             <h2 className='flex flex-col  font-normal text-md text-custom-neutral-800'>
               რედბერის მთავარი ღირებულება ჩვენი გუნდის <br />
               თითოეული წევრია. გარემო, რომელსაც ჩვენი <br /> თანამშრომლები

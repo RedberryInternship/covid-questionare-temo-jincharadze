@@ -19,7 +19,7 @@ const CovidInfo = (props) => {
       <div className={props.className}>
         <div className='flex justify-between'>
           <div>
-            <h2 className='mt-[2.6rem] mb-4 text-md font-bold text-custom-neutral-800'>
+            <h2 className='mt-24 mb-4 text-md font-bold text-custom-neutral-800'>
               გაქვს გადატანილი Covid-19?*
             </h2>
             <div className='ml-5'>
