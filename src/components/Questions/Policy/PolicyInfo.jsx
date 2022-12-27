@@ -230,9 +230,9 @@ const PolicyInfo = (props) => {
             <div className='flex max-w-[38.9rem] w-full justify-end'>
               <Button
                 onClick={handleClick}
-                className='bg-custom-cyan-700 pointer w-[11.25rem] h-14 rounded-[2.625rem] text-white font-bold text-lg mt-[4.5rem]'
+                className='bg-custom-cyan-700 pointer w-[11.25rem] h-14 all-small-caps rounded-[2.625rem] text-white font-bold text-2xl mt-[4.5rem]'
               >
-                დარულება
+                დასრულება
               </Button>
             </div>
           </div>
