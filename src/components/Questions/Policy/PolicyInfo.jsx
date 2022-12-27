@@ -194,15 +194,16 @@ const PolicyInfo = (props) => {
                     },
                   })}
                 />
-
-                <ErrorMessage
-                  name='what_about_meetings_in_live'
-                  errors={errors}
-                  render={({ message }) => <Message message={message} />}
-                />
+                <div className='mt-2 h-6'>
+                  <ErrorMessage
+                    name='what_about_meetings_in_live'
+                    errors={errors}
+                    render={({ message }) => <Message message={message} />}
+                  />
+                </div>
               </div>
 
-              <div className='mt-12'>
+              <div className='mt-10'>
                 <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
                   რას ფიქრობ არსებულ გარემოზე: <br />
                   რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?
@@ -217,12 +218,13 @@ const PolicyInfo = (props) => {
                     },
                   })}
                 />
-
-                <ErrorMessage
-                  name='tell_us_your_opinion_about_us'
-                  errors={errors}
-                  render={({ message }) => <Message message={message} />}
-                />
+                <div className='mt-2 h-6'>
+                  <ErrorMessage
+                    name='tell_us_your_opinion_about_us'
+                    errors={errors}
+                    render={({ message }) => <Message message={message} />}
+                  />
+                </div>
               </div>
             </div>
             <div className='flex max-w-[38.9rem] w-full justify-end'>

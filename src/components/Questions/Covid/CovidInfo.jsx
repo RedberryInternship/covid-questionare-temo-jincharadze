@@ -69,6 +69,7 @@ const CovidInfo = (props) => {
                 render={({ message }) => <Message message={message} />}
               />
             </div>
+
             {checkRadio[0] === 'yes' && (
               <div className='mt-11'>
                 <h2 className='mb-4 text-md font-bold text-custom-neutral-800'>
@@ -136,13 +137,15 @@ const CovidInfo = (props) => {
                     })}
                   />
 
-                  <ErrorMessage
-                    name='antibodies.test_date'
-                    errors={errors}
-                    render={({ message }) => <Message message={message} />}
-                  />
+                  <div className='mt-1 h-6'>
+                    <ErrorMessage
+                      name='antibodies.test_date'
+                      errors={errors}
+                      render={({ message }) => <Message message={message} />}
+                    />
+                  </div>
 
-                  <div className='mt-6'>
+                  <div className='mt-2'>
                     <Input
                       type='text'
                       name='antibodies.number'
@@ -157,11 +160,13 @@ const CovidInfo = (props) => {
                     />
                   </div>
 
-                  <ErrorMessage
-                    name='antibodies.number'
-                    errors={errors}
-                    render={({ message }) => <Message message={message} />}
-                  />
+                  <div className='mt-2'>
+                    <ErrorMessage
+                      name='antibodies.number'
+                      errors={errors}
+                      render={({ message }) => <Message message={message} />}
+                    />
+                  </div>
                 </div>
               </div>
             )}
