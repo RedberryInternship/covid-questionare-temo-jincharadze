@@ -19,6 +19,10 @@ const usePersonalInfo = () => {
 
   const { getQuery } = useQuery('page');
 
+  const firstNameError = errors.first_name || !getValues('first_name');
+  const lastNameError = errors.last_name || !getValues('last_name');
+  const emailNameError = errors.email || !getValues('email');
+
   useEffect(() => {
     if (getQuery === '1') {
       const getItems = JSON.parse(localStorage.getItem('items'));
@@ -35,7 +39,7 @@ const usePersonalInfo = () => {
         );
         return setFormInputs((prev) => {
           return {
-            ...prev,
+            ...getItems,
             first_name: firstName,
             email: getValues('email') ? email.trim() : email,
             last_name: lastName,
@@ -58,6 +62,9 @@ const usePersonalInfo = () => {
   return {
     handleClick,
     register,
+    firstNameError,
+    lastNameError,
+    emailNameError,
     formState: { isValid, errors },
   };
 };

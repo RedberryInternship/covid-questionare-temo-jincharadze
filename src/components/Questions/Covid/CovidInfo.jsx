@@ -208,7 +208,19 @@ const CovidInfo = (props) => {
           </div>
         </div>
         <div>
-          <Arrow nextClick={nextClick} backClick={backClick} />
+          <Arrow
+            nextClick={nextClick}
+            backClick={backClick}
+            stroke={
+              !checkRadio[0] || !checkRadio[1]
+                ? '#8D8D8D'
+                : checkRadio[1] === 'false' && !checkRadio[4]
+                ? '#8D8D8D'
+                : checkRadio[1] === 'true' && errors.antibodies
+                ? '#8D8D8D'
+                : '#232323'
+            }
+          />
         </div>
       </div>
     </>
