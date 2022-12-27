@@ -16,7 +16,7 @@ const PersonalInfo = (props) => {
     <>
       <div className={props.className}>
         <div className='flex justify-between'>
-          <div className='max-w-lg w-full mt-[2.6rem]'>
+          <div className='max-w-lg w-full mt-24'>
             <Input
               type='text'
               name='first_name'
