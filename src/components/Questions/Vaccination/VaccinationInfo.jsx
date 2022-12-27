@@ -205,7 +205,7 @@ const VaccinationInfo = (props) => {
               </div>
             )}
           </div>
-          <div className='sticky flex justify-center overflow-hidden'>
+          <div className='sticky flex justify-center overflow-hidden mt-20'>
             <div className='z-10  animate-star'>
               <img src={star} alt='star image' />
             </div>
