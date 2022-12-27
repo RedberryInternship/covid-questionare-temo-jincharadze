@@ -1,6 +1,7 @@
 export * from './Form';
 export * from './Questions';
 export * from './Success';
+export * from './NotFound';
 export { default as Card } from './Card';
 export { default as LeftArrow } from './LeftArrow';
 export { default as RightArrow } from './RightArrow';

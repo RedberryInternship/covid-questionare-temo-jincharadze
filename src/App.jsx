@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { Form, Main } from '@/pages';
 import { FormDataProvider } from '@/store';
-import { Success } from '@/components';
+import { NotFound, Success } from '@/components';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +18,7 @@ const router = createBrowserRouter(
       <Route path='/success'>
         <Route index element={<Success />} />
       </Route>
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 );
