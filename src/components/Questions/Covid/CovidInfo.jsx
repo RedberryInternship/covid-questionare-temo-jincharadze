@@ -211,7 +211,7 @@ const CovidInfo = (props) => {
               </div>
             )}
           </div>
-          <div className='sticky flex justify-center overflow-hidden'>
+          <div className='sticky flex justify-center overflow-hidden mt-14'>
             <div className='animate-red z-10 absolute'></div>
             <img src={pageTwoImg} className='w-[53rem] z-20 relative' />
           </div>
